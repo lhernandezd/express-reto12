@@ -15,7 +15,7 @@ router.post('/products', async (req,res) => {
     price
   });
   await product.save();
-  res.status(201).json(product);
+  res.status(201).send(`<h1>${product}</h1>`);
 })
 
 module.exports = router;
