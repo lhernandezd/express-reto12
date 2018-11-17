@@ -8,4 +8,14 @@ router.get('/products' ,async (req,res) => {
   res.json(allProducts);
 });
 
+router.post('/products', async (req,res) => {
+  const { name, price } = req.body;
+  const product = new Product({
+    name,
+    price
+  });
+  await product.save();
+  res.status(201).json(product);
+})
+
 module.exports = router;
